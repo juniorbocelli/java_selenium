@@ -1,0 +1,16 @@
+<component name="libraryTable">
+  <library name="selenium">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/src/lib/webdriver/libs/byte-buddy-1.8.15.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/lib/webdriver/libs/commons-exec-1.3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/lib/webdriver/libs/guava-25.0-jre.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/lib/webdriver/libs/okhttp-3.11.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/lib/webdriver/libs/okio-1.14.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/src/lib/webdriver/client-combined-3.141.59.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/src/lib/webdriver/client-combined-3.141.59-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
