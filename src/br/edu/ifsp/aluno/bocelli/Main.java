@@ -6,7 +6,6 @@ import org.openqa.selenium.chrome.ChromeDriver;
 public class Main {
 
     public static void main(String[] args) throws InterruptedException {
-        // TODO Auto-generated method stub
         System.setProperty("webdriver.chrome.driver", "C:\\Users\\junio\\IdeaProjects\\TPC1_Prova_2\\lib\\chrome\\chromedriver.exe");
 
         // Funciona como se fosse a instância do navegador
@@ -24,5 +23,4 @@ public class Main {
         // Fecha o navegador (clse() fecha apenas a aba)
         webDriver.quit();
     }
-
 }
