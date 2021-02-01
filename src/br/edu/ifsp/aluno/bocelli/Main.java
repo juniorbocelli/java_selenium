@@ -4,18 +4,33 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class Main {
-
     public static void main(String[] args) throws InterruptedException {
         System.setProperty("webdriver.chrome.driver", "C:\\Users\\junio\\IdeaProjects\\TPC1_Prova_2\\lib\\chrome\\chromedriver.exe");
 
         // Funciona como se fosse a instância do navegador
         WebDriver webDriver = new ChromeDriver();
 
+        // Iniciando classes
+        Navigation navigation = new Navigation((webDriver));
+
+        /**
+         * Testes de navegação
+         */
+        navigation.startHome();
+
+        navigation.navigateToEngineersList();
+        navigation.navigateToNewEngineer();
+
+        navigation.navigateToVehiclesList();
+        navigation.navigateToNewVehicle();
+
+        navigation.navigateToHome();
+
         // Abre o navegador e entra em página
-        webDriver.get("https://google.com");
+        //webDriver.get("https://google.com");
 
         // Maximiza navegador
-        webDriver.manage().window().maximize();
+        //webDriver.manage().window().maximize();
 
         // Espera milisegundos
         Thread.sleep(5000);

@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+
+    <title>Oficina Mecânica</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light mb-5">
+      <a class="navbar-brand" href="index.html">Oficina Mecânica</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navVeiculos" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Veículos
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="veiculos.html">Ver todos</a>
+              <a class="dropdown-item" href="novo-veiculo.html">Cadastrar novo</a>
+            </div>
+          </li>
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navMecanicos" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Mecanicos
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="mecanicos.html">Ver todos</a>
+              <a class="dropdown-item" href="novo-mecanico.html">Cadastrar novo</a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <div class="container mt-5">
+      <h1 id="titulo">Novo Veículo</h1>
+
+      <div class="row justify-content-center">
+          <div class="col-sm-10">
+            <form id="meuForm" novalidate>
+              <div class="form-row">
+
+                <div class="col form-group">
+                  <label for="placaLetras">Letras Placa</label>
+                  <input type="text" class="form-control" id="placaLetras" name="placaLetras" pattern="[A-Za-z]{3}" required>
+                  <div class="invalid-feedback">
+                    Digite letras da placa válidas!
+                  </div>
+                </div>
+
+                <div class="col form-group">
+                  <label for="placaNumeros">Números Placa</label>
+                  <input type="number" class="form-control" id="placaNumeros" name="placaNumeros" pattern="[0-9]{4}" max="9999" step="1" required>
+                  <div class="invalid-feedback">
+                    Digite números da placa válidos!
+                  </div>
+                </div>
+
+                <div class="col form-group">
+                  <label for="placaEstado">Estado Placa</label>
+                  <select class="form-control" id="placaEstado" name="placaEstado" required>
+                    <option value="">Selecione um estado</option>
+                  </select>
+                  <div class="invalid-feedback">
+                    O campo Estado Placa é obrigatóro!
+                  </div>
+                </div>
+
+                <div class="col form-group">
+                  <label for="placaCidade">Cidade Placa</label>
+                  <select class="form-control" id="placaCidade" name="placaCidade" required>
+                    <option value="">Selecione uma cidade</option>
+                  </select>
+                  <div class="invalid-feedback">
+                    O campo Cidade Placa é obrigatóro!
+                  </div>
+                </div>
+
+              </div>
+
+              <div class="form-row">
+
+                <div class="col form-group">
+                  <label for="tipo">Tipo</label>
+                  <select class="form-control" id="tipo" name="tipo" required>
+                    <option value="">Selecione um tipo</option>
+                    <option value="AUTOMOVEL">Altomóvel</option>
+                    <option value="CAMINHAO">Caminhão</option>
+                    <option value="TRATOR">Trator</option>
+                  </select>
+                  <div class="invalid-feedback">
+                    O campo Tipo é obrigatóro!
+                  </div>
+                </div>
+
+                <div class="col form-group">
+                  <label for="marca">Marca</label>
+                  <select class="form-control" id="marca" name="marca" required>
+                    <option value="">Selecione uma marca</option>
+                  </select>
+                  <div class="invalid-feedback">
+                    O campo Marca é obrigatóro!
+                  </div>
+                </div>
+
+                <div class="col form-group">
+                  <label for="modelo">Modelo</label>
+                  <select class="form-control" id="modelo" name="modelo" required>
+                    <option value="">Selecione uma marca</option>
+                  </select>
+                  <div class="invalid-feedback">
+                    O campo Modelo é obrigatóro!
+                  </div>
+                </div>
+
+                <div class="col form-group">
+                  <label for="ano">Ano</label>
+                  <input type="number" class="form-control" id="ano" name="ano" pattern="[0-9]{4}" min="1950" max="2100" step="1" required>
+                  <div class="invalid-feedback">
+                    O campo Ano é obrigatóro!
+                  </div>
+                </div>
+
+              </div>
+
+              <div class="form-row">
+
+                <div class="col form-group">
+                  <label for="portas">Portas</label>
+                  <input type="number" class="form-control" id="portas" name="portas" min="1" max="5" step="1" required>
+                  <div class="invalid-feedback">
+                    O campo Portas é obrigatóro!
+                  </div>
+                </div>
+
+                <div class="col form-group">
+                  <label for="lugares">Lugares</label>
+                  <input type="number" class="form-control" id="lugares" name="lugares" min="1" max="100" step="1" required>
+                  <div class="invalid-feedback">
+                    O campo Lugares é obrigatóro!
+                  </div>
+                </div>
+
+                <div class="col form-group">
+                  <label for="combustivel">Combustível</label>
+                  <select class="form-control" id="combustivel" name="combustivel" required>
+                    <option value="">Selecione uma marca</option>
+                    <option value="GASOLINA">Gasolina</option>
+                    <option value="ALCOOL">Álcool</option>
+                    <option value="FLEX">Flex</option>
+                    <option value="DIESEL">Diesel</option>
+                  </select>
+                  <div class="invalid-feedback">
+                    O campo Combustível é obrigatóro!
+                  </div>
+                </div>
+
+                <div class="col form-group">
+                  <label for="cor">Cor</label>
+                  <input type="color" class="form-control" id="cor" name="cor" value="#ff0000" required>
+                  <div class="invalid-feedback">
+                    O campo Cor é obrigatóro!
+                  </div>
+                </div>
+
+              </div>
+        
+              <div class="form-group">
+                <label>Acessórios</label>
+                <input type="text" class="form-control" name="acessorio">
+                <button id="novoAcessorio" type="button" class="btn btn-sm btn-success">+</button>
+              </div>
+    
+              <div id="acessoriosExtras">
+    
+              </div>
+    
+              <div class="form-row mt-4">
+                <div class="col">
+                  <button id="sendForm" type="button" class="btn btn-primary">Cadastrar</button>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col">
+                  <p id="avisoErro" style="color: red; font-weight: bold; text-align: center;"></p>
+                </div>
+              </div>
+    
+            </form>
+          </div>
+      </div>
+    </div>
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+
+    <!-- Meus Scripts -->
+    <script src="scripts/novo-veiculo.js"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+    -->
+  </body>
+</html>
