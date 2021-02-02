@@ -10,7 +10,6 @@ $(document).ready(function() {
 
     // Monta tabela
     carregarTabela();
-    $('#conteudoTabela').empty();
 
     // Eventos ao fechar modal
     $('.modal').on('hidden.bs.modal', function (event) {
@@ -24,6 +23,7 @@ $(document).ready(function() {
 });
 
 function carregarTabela() {
+    $('#conteudoTabela').empty();
     for(let i = 0; i < mecanicos.length; i++) {
         let lineItem = $(`<tr data-index="${i}"></tr>`);
         lineItem.append(`<td>${mecanicos[i].cpf}</td>`);

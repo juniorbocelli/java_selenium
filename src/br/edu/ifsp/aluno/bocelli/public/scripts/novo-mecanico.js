@@ -1,7 +1,7 @@
 const prototipoTelefone = `<div class="form-group">
                                 <label>Telefone Extra</label>
                                 <input type="text" class="form-control" data-role="telefoneExtra" name="telefone" pattern="\\([0-9]{2}\\) [0-9]{4}-[0-9]{4}" required>
-                                <div class="invalid-feedback">
+                                <div class="invalid-feedback" data-for="telefone">
                                     Telefone extra inválido!
                                 </div>
                                 <button data-role="removeTelefone" type="button" class="btn btn-sm btn-danger">-</button>
@@ -10,7 +10,7 @@ const prototipoTelefone = `<div class="form-group">
 const prototipoEmail = `<div class="form-group">
                             <label>E-mail Extra</label>
                             <input type="email" class="form-control" data-role="emailExtra" name="email" required>
-                            <div class="invalid-feedback">
+                            <div class="invalid-feedback" data-for="email">
                                 E-mail extra inválido!
                             </div>
                             <button data-role="removeEmail" type="button" class="btn btn-sm btn-danger">-</button>
