@@ -137,9 +137,37 @@ public class Vehicle {
             listElements.get(0).click();
         } else {
             System.out.println("Foi encontrado um erro:");
-            System.out.println("    - Não existe o ítem requerido");
+            System.out.println("    - Não existe o ítem requerido!");
 
             webDriver.quit();
+        }
+
+        // Célula do botão Excluir
+        WebElement td = listElements.get(0).findElement(By.xpath("./.."));
+        WebElement tr = td.findElement(By.xpath("./.."));
+
+        String placaDeletada = tr.findElements(By.tagName("td")).get(0).getText();
+
+        // Procura botão do modal
+        WebElement modalButton = webDriver.findElement(By.className("modal")).findElement(By.cssSelector("button[class='btn btn-primary']"));
+
+        // Testa se está visível
+        if(!modalButton.isDisplayed()) {
+            System.out.println("Foi encontrado um erro:");
+            System.out.println("    - Modal de exclusão não foi aberto!");
+        }
+
+        // Envia clique de confirmação
+        modalButton.click();
+
+        // Verifica se o ítem foi excluído
+        List<WebElement> e = webDriver.findElements(By.xpath("//*[text()='" + placaDeletada + "']"));
+
+        if(e.size() == 0) {
+            System.out.println("Elemento com Placa " + placaDeletada + " foi deletado com sucesso!");
+        } else {
+            System.out.println("Foi encontrado um erro:");
+            System.out.println("    - Erro ao tentar excluir a Placa " + placaDeletada + "!");
         }
     }
 }
