@@ -22,15 +22,20 @@ public class Engineer {
     public void tryCreate(String cpf, String nome, String nascimento, String sexo, String salario, String[] telefones, String[] emails) throws InterruptedException {
         // Verifica se está na pagina correta
         if(webDriver.getTitle().compareTo("Oficina Mecânica - Salvar Mecânico") != 0) {
-            navigation.navigateToEngineersList();
+            navigation.navigateToNewEngineer();
         }
 
+        // CPF
         webDriver.findElement(By.id("cpf")).sendKeys(cpf);
+
+        // Nome
         webDriver.findElement(By.id("nome")).sendKeys(nome);
+
+        // Nascimento
         webDriver.findElement(By.id("nascimento")).sendKeys(nascimento);
 
+        // Sexo
         List<WebElement> radioElements = new ArrayList<>(webDriver.findElements(By.name("sexo")));
-
         for(WebElement element : radioElements) {
             if(element.getAttribute("value").compareTo(sexo) == 0) {
                 JavascriptExecutor javascriptExecutor = (JavascriptExecutor)webDriver;
@@ -38,13 +43,13 @@ public class Engineer {
             }
         }
 
+        // Salário
         webDriver.findElement(By.id("salario")).sendKeys(salario);
 
         // Telefones
         if(telefones.length > 0) {
             webDriver.findElements(By.name("telefone")).get(0).sendKeys(telefones[0]);
         }
-
         for(int i = 1; i < telefones.length; i++) {
             webDriver.findElement(By.id("novoTelefone")).click();
             webDriver.findElements(By.name("telefone")).get(i).sendKeys(telefones[i]);
@@ -54,7 +59,6 @@ public class Engineer {
         if(emails.length > 0) {
             webDriver.findElements(By.name("email")).get(0).sendKeys(emails[0]);
         }
-
         for(int i = 1; i < emails.length; i++) {
             webDriver.findElement(By.id("novoEmail")).click();
             webDriver.findElements(By.name("email")).get(i).sendKeys(emails[i]);
@@ -113,6 +117,8 @@ public class Engineer {
         } else {
             System.out.println("Foi encontrado um erro:");
             System.out.println("    - Não existe o ítem requerido");
+
+            webDriver.quit();
         }
     }
 }
