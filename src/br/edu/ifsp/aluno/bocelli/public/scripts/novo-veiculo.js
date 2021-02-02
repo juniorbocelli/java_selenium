@@ -1,5 +1,5 @@
 const prototipoAcessorio = `<div class="form-group">
-                                <label>Acessório Estra</label>
+                                <label>Acessório Extra</label>
                                 <input type="text" class="form-control" data-role="acessorioExtra" name="acessorio">
                                 <button data-role="removeAcessorio" type="button" class="btn btn-sm btn-danger">-</button>
                             </div>`;
@@ -34,12 +34,12 @@ $(document).ready(function() {
         }
     }
 
-    // Evento que insere email extra
+    // Evento que insere acessório extra
     $('#novoAcessorio').click(function() {
         $('#acessoriosExtras').append(prototipoAcessorio);
     });
 
-    // Evento que remove email extra
+    // Evento que remove acessório extra
     $('#acessoriosExtras').on('click', 'button[data-role="removeAcessorio"]', function() {
         $(this).parent().remove();
     });
@@ -130,7 +130,7 @@ function insereNovo() {
     novoMembro['combustivel'] = $('#combustivel').val();
     novoMembro['cor'] = $('#cor').val();
 
-    // Telefones
+    // Acessório
     novoMembro['acessorios'] = []
     let acessoriosLista = $('input[name="acessorio"]');
 
