@@ -20,6 +20,11 @@ $(document).ready(function() {
     $('#conteudoTabela').on('click', 'button[data-index_editar]', function() {
         window.location.href = `novo-mecanico.html?a=e&id=${$(this).attr('data-index_editar')}`;
     });
+
+    // Evento para excluir
+    $('#conteudoTabela').on('click', 'button[data-index_excluir]', function() {
+        mostrarModal('Atenção', '<p>Deseja excluir o conteúdo?</p>', $(this).attr('data-index_editar'));
+    });
 });
 
 function carregarTabela() {
@@ -52,7 +57,7 @@ function mostrarModal(titulo, conteudo, index) {
 }
 
 function exclui(index) {
-    veiculos.splice(index, 1);
+    mecanicos.splice(index, 1);
     $('.modal').modal('hide');
     carregarTabela();
 }

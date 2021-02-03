@@ -103,6 +103,20 @@ function preencheCampos(veiculo) {
 }
 
 function quantosExistem(placaLetras, placaNumeros, placaEstado, placaCidade) {
+    if(veiculos.length > 0) {
+        if(veiculos.filter(veiculo => veiculo.placaLetras === placaLetras)) {
+            if(veiculos.filter(veiculo => veiculo.placaNumeros === placaNumeros)) {
+                if(veiculos.filter(veiculo => veiculo.placaEstado === placaEstado)) {
+                    if(veiculos.filter(veiculo => veiculo.placaCidade === placaCidade)) {
+                        return 1;
+                    }
+                }
+            }
+        }
+    } else {
+        return 0;
+    }
+
     let iguais = veiculos.filter(veiculo => {
         if(veiculo.placaLetras === placaLetras &&
             veiculo.placaNumeros === placaNumeros &&
@@ -111,7 +125,7 @@ function quantosExistem(placaLetras, placaNumeros, placaEstado, placaCidade) {
         
     });
     
-    return iguais.length;
+    return 0;
 }
 
 function insereNovo() {

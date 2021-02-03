@@ -101,6 +101,23 @@ public class Engineer {
             webDriver.quit();
         }
 
+        // Apaga campos
+        List<WebElement> inputList = new ArrayList<>(webDriver.findElements(By.tagName("input")));
+        for(WebElement element : inputList) {
+            if(element.getAttribute("type").compareTo("text") == 0 ||
+                    element.getAttribute("type").compareTo("email") == 0 ||
+                    element.getAttribute("type").compareTo("date") == 0 ||
+                    element.getAttribute("type").compareTo("number") == 0) element.clear();
+        }
+
+        // Tira telefones extras
+        List<WebElement> phoneButtons = new ArrayList<>(webDriver.findElements(By.cssSelector("button[data-role='removeTelefone']")));
+        for(WebElement button : phoneButtons) button.click();
+
+        // Tira emails extras
+        List<WebElement> emailButtons = new ArrayList<>(webDriver.findElements(By.cssSelector("button[data-role='removeEmail']")));
+        for(WebElement button : emailButtons) button.click();
+
         tryCreate(cpf, nome, nascimento, sexo, salario, telefones, emails);
     }
 
@@ -111,7 +128,7 @@ public class Engineer {
         }
 
         // Tenta selecionar a linha
-        List<WebElement> listElements = new ArrayList<>(webDriver.findElements(By.cssSelector("button[data-index_editar='" + index + "']")));
+        List<WebElement> listElements = new ArrayList<>(webDriver.findElements(By.cssSelector("button[data-index_excluir='" + index + "']")));
         if(listElements.size() > 0) {
             listElements.get(0).click();
         } else {

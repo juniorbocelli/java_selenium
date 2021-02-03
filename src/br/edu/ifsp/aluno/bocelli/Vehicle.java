@@ -35,27 +35,27 @@ public class Vehicle {
         // Estado
         WebElement dropDown1 = webDriver.findElement(By.id("placaEstado"));
         Select placaEstadoSelect = new Select(dropDown1);
-        placaEstadoSelect.selectByValue("placaEstado");
+        placaEstadoSelect.selectByValue(placaEstado);
 
         // Cidade
         WebElement dropDown2 = webDriver.findElement(By.id("placaCidade"));
         Select placaCidadeSelect = new Select(dropDown2);
-        placaCidadeSelect.selectByValue("placaCidade");
+        placaCidadeSelect.selectByValue(placaCidade);
 
         // Tipo
         WebElement dropDown3 = webDriver.findElement(By.id("tipo"));
         Select tipoSelect = new Select(dropDown3);
-        tipoSelect.selectByValue("tipo");
+        tipoSelect.selectByValue(tipo);
 
         // Marca
         WebElement dropDown4 = webDriver.findElement(By.id("marca"));
         Select marcaSelect = new Select(dropDown4);
-        marcaSelect.selectByValue("marca");
+        marcaSelect.selectByValue(marca);
 
         // Modelo
         WebElement dropDown5 = webDriver.findElement(By.id("modelo"));
         Select modeloSelect = new Select(dropDown5);
-        modeloSelect.selectByValue("modelo");
+        modeloSelect.selectByValue(modelo);
 
         // Ano
         webDriver.findElement(By.id("ano")).sendKeys(ano);
@@ -69,7 +69,7 @@ public class Vehicle {
         // Combustível
         WebElement dropDown6 = webDriver.findElement(By.id("combustivel"));
         Select combustivelSelect = new Select(dropDown6);
-        combustivelSelect.selectByValue("combustivel");
+        combustivelSelect.selectByValue(combustivel);
 
         // Cor
         JavascriptExecutor javascriptExecutor = (JavascriptExecutor)webDriver;
@@ -89,14 +89,14 @@ public class Vehicle {
         webDriver.findElement(By.id("sendForm")).click();
 
         // Verifica se houve o cadastro
-        if(webDriver.getCurrentUrl().compareTo("http://localhost/oficina/mecanicos.html") != 0) {
+        if(webDriver.getCurrentUrl().compareTo("http://localhost/oficina/veiculos.html") != 0) {
             // Erros no form
             errorHandler.errorInForm("meuForm", webDriver.getTitle());
 
             // Erros gerais
             errorHandler.otherErrors("meuForm", webDriver.getTitle());
         } else {
-            System.out.println("Mecânico salvo com sucesso!");
+            System.out.println("Veículo salvo com sucesso!");
         }
     }
 
@@ -119,8 +119,21 @@ public class Vehicle {
             System.out.println("Foi encontrado um erro:");
             System.out.println("    - A url " + webDriver.getCurrentUrl() + " não é a esperada!");
 
+            Thread.sleep(10000);
+
             webDriver.quit();
         }
+
+        // Apaga campos
+        List<WebElement> inputList = new ArrayList<>(webDriver.findElements(By.tagName("input")));
+        for(WebElement element : inputList) {
+            if(element.getAttribute("type").compareTo("text") == 0 ||
+                    element.getAttribute("type").compareTo("number") == 0) element.clear();
+        }
+
+        // Tira acessórios extras
+        List<WebElement> toolButtons = new ArrayList<>(webDriver.findElements(By.cssSelector("button[data-role='removeAcessorio']")));
+        for(WebElement button : toolButtons) button.click();
 
         tryCreate(placaLetras, placaNumeros, placaEstado, placaCidade, tipo, marca, modelo, ano, portas, lugares, combustivel, cor, acessorios);
     }
@@ -132,7 +145,7 @@ public class Vehicle {
         }
 
         // Tenta selecionar a linha
-        List<WebElement> listElements = new ArrayList<>(webDriver.findElements(By.cssSelector("button[data-index_editar='" + index + "']")));
+        List<WebElement> listElements = new ArrayList<>(webDriver.findElements(By.cssSelector("button[data-index_excluir='" + index + "']")));
         if(listElements.size() > 0) {
             listElements.get(0).click();
         } else {
