@@ -1,1 +1,3 @@
-# TCP_1_OficinaMecanica_Parte_2
+# Java Selenium
+
+O sistema simula testes usando Java e Selenium.
